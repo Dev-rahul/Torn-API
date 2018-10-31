@@ -7,10 +7,13 @@ const nodemailer = require('nodemailer');
 var stocks = require('./stock.js');
 var app = express();
 var data = [];
+var stockName = [];
 const port = process.env.PORT || 3000;
 
-app.get('/',(req, res) =>{
-    res.send('stock is available');
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => {
+  res.render('index', {data});
 });
 
 
@@ -21,6 +24,7 @@ app.get('/',(req, res) =>{
             if(response.length!==0)
             {
             data.push(response);
+            stockName.push(data[0][0].name);
             //sendmail()
             //console.log(response);
             console.log(data[0][0].name);
