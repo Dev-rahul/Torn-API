@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 
 
     setInterval(function(){
-        var acronym = ['TCT','CNC','GRN']
+        var acronym = ['TCT','CNC','GRN','HRG']
         stocks.ApiCall(acronym).then(response => {
             if(response.length!==0)
             {
