@@ -1,4 +1,6 @@
 <meta http-equiv="refresh" content="10"/>
 <% for(var i = 0; i < data.length; i++) { %>
-    <h2><%= data[i][0].name %> is available</h2>
+  <% for(var j = 0; j < data[i].length; j++) { %>
+    <h2><%= data[i][j].name %> is available</h2>
+  <% } %>
   <% } %>

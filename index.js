@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 var stocks = require('./stock.js');
 var app = express();
 var data = [];
-var stockName = [];
+//var stockName = [];
 const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
@@ -19,15 +19,18 @@ app.get('/', (req, res) => {
 
 
     setInterval(function(){
-        var acronym = ['TCT','CNC','HRG']
+        var acronym = ['TCT','CNC','HRG','PRN']
         stocks.ApiCall(acronym).then(response => {
             if(response.length!==0)
             {
             data.push(response);
-            stockName.push(data[0][0].name);
+            var stockName = [];
+            //for(var i = 0 ; i < data.length ; i++)
+            //stockName.push(data.name);
             //sendmail()
             //console.log(response);
-            console.log(data[0][0].name);
+            console.log(response);
+            console.log(stockName);
             }
         },(errorMessage) => {
             console.log('sgxgg');
