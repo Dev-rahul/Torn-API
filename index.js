@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 
 
     setInterval(function(){
-        var acronym = ['TCT','CNC','HRG','PRN']
+        var acronym = ['TCT','CNC','GRN']
         stocks.ApiCall(acronym).then(response => {
             if(response.length!==0)
             {
@@ -61,7 +61,7 @@ function sendmail() {
     // setup email data with unicode symbols
     let mailOptions = {
         from: 'nodemailtest@yandex.com', // sender address
-        to: 'rahulpmurali@gmail.com, rahulm@netsratum.com', // list of receivers
+        to: 'rahulpmurali@gmail.com', // list of receivers
         subject: 'Hello ✔', // Subject line
         text: data[0][0].name, // plain text body
         html: '<b>Hello world?</b>' // html body
